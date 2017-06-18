@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>tab标签</title>
+    <style>
+        body{ padding: 0 50px;}
+        ul{ list-style-type: none}
+        #menu{ height: 20px; padding:0 15px;}
+        #menu li{ float: left; height: 20px; border: 1px solid #abcdef; width: 50px;}
+        #menu .current{ background: #abcdef;}
+        #content div{ display: none; border: 1px solid #abcdef; width: 100px;}
+        #content .show{ display: block;}
+    </style>
 </head>
 <body>
-
+<ul id="menu">
+    <li class="current">php</li>
+    <li>js</li>
+    <li>java</li>
+</ul>
+<div id="content">
+    <div class="show">这是php</div>
+    <div>这是js</div>
+    <div>这是Java</div>
+</div>
 </body>
+<script src="http://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
 </html>
+<script>
+    $('#menu li').click(function () {
+        //1.点击菜单切换样式
+        $(this).addClass('current').siblings().removeClass('current');
+        //2.根据菜单的索引值显示对应内容
+        $('#content>div').eq($(this).index()).show().siblings().hide();
+    });
+</script>
