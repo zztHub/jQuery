@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery操作样式</title>
+    <style>
+        .bgcolor{ border: 1px solid #abcdef;}
+        .fcolor{ color: #ff5442;}
+    </style>
+</head>
+<body>
+<p>我是p标签</p>
+<div>我是div标签</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
+</html>
+<script>
+    //$('p').addClass('bgcolor fcolor');   //添加样式
+    $('p').click(function () {
+        //$(this).removeClass('fcolor');   //移除样式
+        //$(this).toggleClass('fcolor');     //切换样式
+
+        var bool = $(this).hasClass('fcolor'); //判断是否有样式
+        if(bool){
+            $(this).removeClass('fcolor');
+        }else{
+            $(this).addClass('fcolor');
+        }
+    });
+
+    $('div').click(function () {
+        //批量添加样式,json格式，添加的是行间样式
+        $(this).css({
+            'background':'blue',
+            'border':'10px solid #abcdef'
+        });
+    });
+</script>

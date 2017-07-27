@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件</title>
+</head>
+<body style="width: 2000px;">
+<input type="text" value="">
+<p class="p">一碰就变身</p>
+<input type="file"><span style="display: none">5555</span>
+<form action="">
+    <input type="text"></input>
+    <input type="password"></input>
+    <input type="submit" value="提交">
+</form>
+<input type="text" class="position" style="position: fixed; left: auto;">
+<script src="/js/jquery-3.1.1.js"></script>
+</body>
+</html>
+<script>
+    /*$(document).mousemove(function (e) {
+        var x = e.pageX;  //获取鼠标的坐标
+        var y = e.pageY;
+        $('input').val(x+','+y);
+    });*/
+
+    $('p').mouseover(function () {
+        $(this).css('background','red');
+    });
+    $('p').mouseout(function () {
+        $(this).css('background','none');
+    });
+
+    //change事件
+    $('input[type=file]').change(function () {
+        $('span').show();
+    });
+
+    $('form').submit(function () {
+        alert(55)
+    });
+
+    //浏览器窗口大小改变事件
+    $(window).resize(function () {
+        alert('窗口大小改变了');
+    });
+
+    //鼠标坐标
+    $(document).click(function (e) {
+        var x = e.pageX;
+        var y = e.pageY;
+        $('input.position').val(x +','+ y);
+    });
+</script>

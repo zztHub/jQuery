@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jquery-cookie</title>
     <script src="/js/jquery-3.1.1.js"></script>
 </head>
 <body>
@@ -11,7 +11,8 @@
 <script src="/js/jquery.cookie.js"></script>
 </html>
 <script>
-    //jquery读取cookie
-    var cookie = $.cookie('uname');
-    console.log(cookie);
+    //jq设置和读取cookie
+    $.cookie('uname','tom');
+    var uname = $.cookie('uname');
+    alert(uname);
 </script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <style>
+        span{
+            color: #ff191a;}
+    </style>
+</head>
+<body>
+<input type="text" name="uname">
+<input type="button" value="验证">
+<div></div>
+<input type="button" class="getdata" value="获取数据"><br>
+<img src="/img/ajax-loader.gif" class="loadimg" style="display: none">
+<div class="data"></div>
+<span></span>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+/*load方法*/
+/*$('input[type=button]').on('click',function () {
+    var uname = $("[name='uname']").val();
+    $('div').load('../php/ajax.php',{uname:uname},function (res) {
+        console.log(res);
+    });
+});*/
+
+
+$('.getdata').on('click',function () {
+    $.ajax({
+        url: '../php/ajax.php',
+        timeout: 1000,
+        success:function (res) {
+            var data = eval(res);
+            var html = '';
+            for(var i=0;i<data.length;i++){
+                html += data[i].title+'<em>'+data[i].addtime+'</em>'+'<br />';
+            }
+            $('.data').html(html);
+        },
+        //错误信息
+        error:function (jqXHR,textStatus,errorThrown) {
+            if(errorThrown == 'Not Found'){
+                $('span').html('您请求的地址不存在');
+            }
+            if(textStatus == 'timeout'){
+                $('span').html('请求超时');
+            }
+        }
+    });
+});
+
+//ajax执行前
+$(document).ajaxStart(function () {
+    $('.loadimg').show();
+});
+
+//ajax执行后
+$(document).ajaxStop(function () {
+    $('.loadimg').hide();
+});
+</script>

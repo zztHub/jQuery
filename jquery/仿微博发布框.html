@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布</title>
+</head>
+<body>
+<textarea name="" id="" cols="30" rows="10" ></textarea>
+<span>你还可以输入<strong style="color: red;">140</strong>个字</span>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    //限制文本域的输入字数
+    var maxLen = 140;
+    $('textarea').keyup(function () {
+        var len = $(this).val().length;
+        $('strong').text(maxLen-len);
+
+        if(parseInt($('strong').text())<0){
+            var value = $(this).val().substring(0,140);
+            $(this).val(value);
+        }
+    });
+</script>

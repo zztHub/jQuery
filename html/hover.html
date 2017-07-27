@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover事件</title>
+</head>
+<body>
+<p>测试hover事件</p>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    //模拟鼠标进入（mouseenter）和鼠标离开（mouseleave）事件
+    $('p').hover(function () {
+        $(this).css('font-size','25px');
+    },function () {
+        $(this).css('font-size','16px');
+    });
+
+</script>

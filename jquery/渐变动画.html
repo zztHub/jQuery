@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变动画</title>
+    <style>
+        p{ width: 300px; border: 1px solid #abcdef;}
+    </style>
+</head>
+<body>
+<a href="#">隐藏</a>
+<p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，
+    广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</p>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    /*$('a').click(function () {
+        if($('p').is(':visible')){
+            $('p').fadeOut(500);  //透明度opacity由1变成0
+            $(this).text('显示');
+        }else{
+            $('p').fadeIn(500);   //透明度opacity由0变成1
+            $(this).text('隐藏');
+        }
+    });*/
+
+    /*fadeTo()*/
+    /*$('a').click(function () {
+        $('p').fadeTo(1000,.3,function () {
+
+        });  //.3-透明度
+    });*/
+
+    /*fadeToggle()*/
+    $('a').click(function () {
+        $('p').fadeToggle(1000);  //切换fadeIn和fadeOut
+    });
+</script>

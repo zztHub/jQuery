@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定与移除</title>
+</head>
+<body>
+<p class="bind">p标签</p>
+<span>我是span标签</span>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    $('.bind').bind('click',function () {
+        $('body').append('<p>我是新增的</p>');
+    });
+
+    /*事件命名*/
+    //开发者1
+    $('span').bind('click.background',function () {
+        $(this).css('background','#ef6e59');
+    });
+
+    //开发者2
+    $('span').bind('click.color',function () {
+        $(this).css('color','blue');
+    });
+
+    //开发者3只想取消开发者1的click事件
+    $('span').unbind('click.background');
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画队列</title>
+    <style>
+        p{ width: 200px; height: 100px; background: #67efd4; display: none;}
+        div{ width: 100px; height: 100px; background: #abcdef;}
+    </style>
+</head>
+<body>
+<a href="">hover</a>
+<p>pppp</p>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    /*stop*/
+    $('a').hover(function () {
+        $('p').stop(true,true).slideDown(500);
+    },function () {
+        $('p').stop(true,true).slideUp(500);
+    });
+
+
+</script>

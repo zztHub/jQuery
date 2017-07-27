@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动动画</title>
+    <style>
+        p{ width: 300px; border: 1px solid #abcdef;}
+    </style>
+</head>
+<body>
+<a href="#">隐藏</a>
+<p>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，
+    广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+</p>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    /*$('a').click(function () {
+        if($('p').is(':visible')){
+            $('p').slideUp(500);    //向上滑动
+        }else{
+            $('p').slideDown(500);   //向下滑动
+        }
+    });*/
+
+    /*slideToggle()*/
+    $('a').click(function () {
+        $('p').slideToggle(500);
+    });
+</script>

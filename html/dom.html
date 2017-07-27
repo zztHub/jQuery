@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery操作DOM</title>
+</head>
+<body>
+<div>
+    <p>1111</p>
+    <p>2222</p>
+    <span>
+        <p>我是p标签</p>
+        <em>我是em标签</em>
+    </span>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/1.7.2/jquery.min.js"></script>
+</html>
+<script>
+    //内部之后
+    var newDiv = $("<strong>新插入的标签</strong>");
+    //$('p').append(newDiv);
+
+    //内部之前
+    //$('p').prepend(newDiv);
+
+    //外部之后
+    //$('p').after(newDiv);
+
+    //外部之前
+    //$('p').before(newDiv);
+
+    /*包裹元素*/
+    //$('p').wrap('<div></div>');   //单独包裹
+    //$('p').wrapAll('<div></div>');  //整体包裹
+
+    $('em').click(function () {
+        $('span').replaceWith('<p>我是新的</p>'); //元素替换
+    });
+</script>

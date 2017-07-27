@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动公告</title>
+    <style>
+        *{margin: 0; padding: 0}
+        ul{list-style-type: none; padding: 20px 50px;}
+        li{ height: 30px; line-height: 30px;}
+    </style>
+</head>
+<body>
+<ul>
+    <li>公告1</li>
+    <li>公告2</li>
+    <li>公告3</li>
+    <li>公告4</li>
+    <li>公告5</li>
+    <li>公告6</li>
+    <li>公告7</li>
+    <li>公告8</li>
+</ul>
+</body>
+<script src="/js/jquery-3.1.1.js"></script>
+</html>
+<script>
+    //克隆第一条添加到最后，再删除第一条，此方法会频繁操作DOM，效率低，不推荐
+    setInterval(function () {
+        var newLi = $('ul').children().first().clone(true);
+        $('ul').append(newLi);
+        $('ul').children().first().remove();
+    },2000);
+</script>
