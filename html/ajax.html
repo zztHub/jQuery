@@ -32,7 +32,7 @@
 $('.getdata').on('click',function () {
     $.ajax({
         url: '../php/ajax.php',
-        timeout: 1000,
+        timeout: 1000,  //响应时间
         success:function (res) {
             var data = eval(res);
             var html = '';
@@ -41,7 +41,7 @@ $('.getdata').on('click',function () {
             }
             $('.data').html(html);
         },
-        //错误信息
+        //详细的错误信息，分多种情况
         error:function (jqXHR,textStatus,errorThrown) {
             if(errorThrown == 'Not Found'){
                 $('span').html('您请求的地址不存在');
@@ -51,6 +51,11 @@ $('.getdata').on('click',function () {
             }
         }
     });
+});
+
+//简单的错误信息-全局作用域，error和该方法同时存在，优先执行全局的错误提示
+$(document).ajaxError(function () {
+    $('span').html('请求失败');
 });
 
 //ajax执行前
